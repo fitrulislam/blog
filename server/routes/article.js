@@ -1,10 +1,10 @@
 const router = require('express').Router()
 const articleController = require('../controllers/articleController')
+const { isUser } = require('../middleware/auth.js')
 
 router
-  .post('/create', articleController.create)
+  .post('/create', isUser, articleController.create)
   .get('/read', articleController.read)
-  .put('/:id', articleController.update)
-  .post('/delete/:title', articleController.delete)
+  .post('/delete/:title', isUser, articleController.delete)
 
 module.exports = router

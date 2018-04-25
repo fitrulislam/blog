@@ -30,24 +30,6 @@ module.exports = {
         })
       })
   },
-  update: (req,res)=>{
-    Article.update({
-      _id: req.params.id
-    },{
-      $set: req.body
-    })
-      .then(article=>{
-        res.status(200).json({
-          message: 'article updated',
-          data: article
-        })
-      })
-      .catch(err=>{
-        res.status(500).json({
-          message: 'article not updated'
-        })
-      })
-  },
   delete: (req,res)=>{
     Article.find({
       title: req.params.title

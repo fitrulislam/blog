@@ -2,20 +2,20 @@
 <div class="container-fluid">
   <form class="form-horizontal">
     <div class="form-group">
-      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+      <label for="inputusername" class="col-sm-2 control-label">Username</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputEmail3" placeholder="Email" v-model="username">
+        <input type="text" class="form-control" id="inputusername" placeholder="Username" v-model="username">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+      <label for="inputpassword" class="col-sm-2 control-label">Password</label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" v-model="password">
+        <input type="password" class="form-control" id="inputpassword" placeholder="Password" v-model="password">
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default" @click="signin()">Sign in</button>
+        <button type="submit" class="btn btn-default" @click="signin">Sign in</button>
       </div>
     </div>
   </form>
@@ -40,9 +40,9 @@ export default {
         password: this.password
       }, {})
         .then(response => {
-          console.log('udah login yey')
           localStorage.setItem('token', response.data.token)
           localStorage.setItem('status', 'connected')
+          location.reload()
           this.$router.push('/admin/input')
         })
         .catch(err => {

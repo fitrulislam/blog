@@ -25,7 +25,9 @@ export default new Vuex.Store({
       state.articles = newArticle
     },
     addArticleToDB (state, payload) {
-      axios.post('http://localhost:3000/article/create', payload, {})
+      axios.post('http://localhost:3000/article/create', payload, {
+        headers: {token: localStorage.getItem('token')}
+      })
         .then(response => {
           console.log(response)
         })
@@ -34,7 +36,9 @@ export default new Vuex.Store({
         })
     },
     deleteArticleInDB (state, payload) {
-      axios.post(`http://localhost:3000/article/delete/${payload}`)
+      axios.post(`http://localhost:3000/article/delete/${payload}`, {}, {
+        headers: {token: localStorage.getItem('token')}
+      })
         .then(response => {
           console.log(response)
         })
