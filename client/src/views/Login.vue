@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     signin () {
-      axios.post('http://localhost:3000/user/signin', {
+      axios.post('http://35.187.241.115:3000/user/signin', {
         username: this.username,
         password: this.password
       }, {})

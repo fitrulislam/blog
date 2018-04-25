@@ -5,7 +5,7 @@ require('dotenv').config()
 const app = express()
 
 const mongoose = require('mongoose')
-const url = 'mongodb://localhost:27017/blog'
+const url = 'mongodb://admin:admin@ds237669.mlab.com:37669/forblog'
 mongoose.connect(url, (err) => {
   if(!err) console.log('connected to database')
   else throw new Error(err)

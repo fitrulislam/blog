@@ -50,7 +50,7 @@ export default {
     }
   },
   created: function () {
-    axios.get('http://localhost:3000/article/read')
+    axios.get('http://35.187.241.115:3000/article/read')
       .then(response => {
         this.$store.commit('addArticles', response.data.data)
       })
